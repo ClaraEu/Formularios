@@ -1,0 +1,53 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="envioFormulario()">
+  <div>
+    Nombre <input type="text" name="nombre" formControlName="nombre">
+    <!--<div>
+      <p>Valid {{ form.controls.nombre.valid }}</p>
+      <p>Invalid {{ form.controls.nombre.invalid }}</p>
+      <p>Pristine {{ form.controls.nombre.pristine }}</p>
+      <p>Dirty {{ form.controls.nombre.dirty }}</p>
+      <p>Touched {{ form.controls.nombre.touched }}</p>
+      <p>Untouched {{ form.controls.nombre.untouched }}</p>
+    </div>-->
+    <!--<div class="error" *ngIf="form.controls.nombre.invalid && form.controls.nombre.dirty && form.controls.nombre.touched">
+      <p>El campo nombre es incorrecto</p>
+    </div>-->
+  </div>
+  <div class="error" >
+    <p *ngIf="form.controls.nombre.errors?.required && form.controls.nombre.dirty">
+      El campo nombre es requerido
+    </p>
+    <p *ngIf="form.controls.nombre.errors?.minlength">
+      El tamaño mínimo del campo es {{form.controls.nombre.errors.minlength.requiredLength}} caracteres
+    </p>
+    <p *ngIf="form.controls.nombre.errors?.maxlength">
+      El tamaño máximo del campo es de {{form.controls.nombre.errors.maxlength.requiredLength}} caracteres
+    </p>
+  </div>
+  <div>
+    Apellidos <input type="text" name="apellidos" formControlName="apellidos">
+  </div>
+  <div>
+    Email <input type="email" name="email" formControlName="email">
+  </div>
+  <div>
+    Edad <input type="text" name="edad" formControlName="edad">
+    <div class="error">
+      <p *ngIf="form.controls.edad.errors?.required && form.controls.edad.dirty">
+        El campo edad es requerido
+      </p>
+      <p *ngIf="form.controls.edad.errors?.edadMadura && form.controls.edad.dirty">
+        La edad debe estar entre {{form.controls.edad.errors.edadMadura.edadMinima}} y {{form.controls.edad.errors.edadMadura.edadMaxima}}
+      </p>
+      <p *ngIf="form.controls.edad.errors?.pattern && form.controls.edad.dirty">
+        El campo edad solo acepta números
+      </p>
+    </div>
+  </div>
+  <div>
+    Password <input type="password" name="password" formControlName="password">
+  </div>
+  <input type="submit" value="Enviar" [disabled]="!form.valid">
+</form>

@@ -1,0 +1,21 @@
+input.ng-valid{
+    border: 1px solid green;
+}
+input.ng-invalid{
+    border: 1px solid red;
+}
+.error{
+    color: red;
+}
+/*input.ng-pristine{
+    border: 1px solid lightpink;
+}
+input.ng-dirty{
+    border: 1px solid lightseagreen;
+}
+input.ng-touched{
+    border: 1px solid lightyellow;
+}
+input.ng-untouched{
+    border: 1px solid brown;
+}*/

@@ -1,0 +1,9 @@
+<form
+  #formulario="ngForm"
+  (ngSubmit)="envioFormulario(formulario.value)">
+  <input type="text" name="nombre" ngModel>
+  <input type="text" name="apellidos" ngModel>
+  <input type="email" name="email" ngModel>
+  <input type="password" name="password" ngModel>
+  <input type="submit" value="Enviar">
+</form>
